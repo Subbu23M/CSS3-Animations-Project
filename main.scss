@@ -1,0 +1,343 @@
+// Universal Affects
+body{
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+button{
+    font-family: 'Open Sans', sans-serif;
+}
+
+button:focus{
+    outline: none;
+}
+
+li{
+    list-style: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+#posts{
+    .underline {
+        width: 150px;
+        height: .4rem;
+    }
+
+    .card{
+        /* position: relative, it’ll remain “in the flow” of the layout but you can move it around! */
+        position: relative;
+
+        // Default Value Top to Bottom
+        background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8));
+
+        .fa-search{
+            /* position: absolute takes elements “out of flow” so its grid space gets collapsed. */
+            position: absolute;
+
+            // to bring search icon into the center 
+                left: 50%;
+                top: 50%;
+
+                transform: translate(-50%,-50%);
+
+            //transform : property duration 
+            transform: opacity 4s;
+
+            // The opacity-level describes the transparency-level
+            opacity: 0;
+        }
+    }
+    .card:hover{
+        img{
+            // The opacity-level describes the transparency-level
+            opacity: 0.3;
+        }
+        .fa-search{
+            // The opacity-level describes the transparency-level
+            opacity: 1;
+        }
+    }
+}
+
+.pre-loader{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    // Convert row into column
+    display: grid;
+
+    // On X-axis
+    justify-content: center;
+
+    // On Y-axis
+    align-items: center;
+
+    visibility: visible;
+
+    /* z-index:stacks one on each other based on value  */
+    z-index: 999;
+
+    background-color: white;
+}
+
+.hide-pre-loader{
+    visibility: hidden;
+
+    /* z-index:stacks one on each other based on value  */
+    z-index: -999;
+}
+
+#projects{
+    padding-top: 20px;
+    padding-bottom: 80px;
+
+    background-color: #E0E2DB;
+
+    .underline-one{
+        width: 190px;
+        height: .4rem;
+    }
+
+    .projects-container{
+        max-width: 90vw;
+
+        .projects-item{
+            /* position: relative, it’ll remain “in the flow” of the layout but you can move it around! */
+            position: relative;
+
+            // Default Value Top to Bottom
+            background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8));
+
+            color: whitesmoke;
+            overflow: hidden;
+
+            img{
+                min-height: 100%;
+
+                // Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width.
+                display: block;
+
+                // transition:property duration
+                transition: transform 4s;
+            }
+
+            .img-text{
+                /* position: absolute takes elements “out of flow” so its grid space gets collapsed. */
+                position: absolute;
+
+                top: 50%;
+                left: 50%;
+
+                transform: translate(-50%,-50%);
+
+                text-align: center;
+                color:#E0E2DB;
+                font-size: 1.4rem;
+
+                // transition:property duration
+                transition: opacity 4s;
+
+                // The opacity-level describes the transparency-level.
+                opacity: 0;
+            }
+
+            .img-footer{
+                /* position: absolute takes elements “out of flow” so its grid space gets collapsed. */
+                position: absolute;
+
+                left: 0;
+                bottom: 0;
+
+                // convert column into row
+                display: flex;
+
+                // On X-axis
+                justify-content: space-between;
+
+                color: #E6AF2E;
+                font-size: 1.2rem;
+
+                // The opacity-level describes the transparency-level.
+                opacity: 0;
+
+                // transition:property duration
+                transition:opacity 4s;
+            }
+        }
+        .projects-item:hover{
+            img{
+                transform: scale(1.2);
+
+                // The opacity-level describes the transparency-level.
+                opacity: 0.4;
+            }
+            .img-text,.img-footer{
+                // The opacity-level describes the transparency-level.
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// Media Queries
+@media screen and (min-width:576px){
+    #projects{
+        .projects-container{
+                // Convert row into column
+                display: grid;
+
+                grid-template-columns: repeat(2,1fr);
+                column-gap: 1rem;
+        }
+    }
+}
+
+// Media Queries
+@media screen and (min-width:992px){
+    #projects{
+        .projects-container{
+                // convert row into column
+                display: grid;
+                
+                grid-template-columns: repeat(3,1fr);
+                column-gap: 1rem;
+        }
+    }
+}
+
+#portfolio{
+    background: url(./Service-6.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    // If we use cover; it will cut off the sides of the image, preserving the aspect ratio, and also filling in the space.
+    background-size: cover;
+
+    // parallax affects
+    background-attachment: fixed;
+
+    padding-top: 20px;
+    padding-bottom: 80px;
+
+    .height{
+        min-height: 100vh;
+    }
+
+    .underline-two{
+        width: 200px;
+        height: .3rem;
+    }
+
+    .portfolio-color-black{
+        // Default Value Top to Bottom
+        background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+    }
+
+    .portfolio-color-white{
+        // Default Value Top to Bottom
+        background: linear-gradient(rgba(206,208,206,0.6),rgba(206,208,206,0.6));
+        color: #191716!important;
+    }
+
+    .portfolio-container{
+        max-width: 90vw;
+        color: #E0E2DB;
+
+        .portfolio-item{
+            /* position: relative, it’ll remain “in the flow” of the layout but you can move it around! */
+            position: relative;
+
+            overflow: hidden;
+
+            .front-text{
+                text-align: center;
+
+                // transition:property duration
+                transition: transform 4s;
+            }
+
+            .back-text{
+                /* position: absolute takes elements “out of flow” so its grid space gets collapsed. */
+                position: absolute;
+                
+                bottom: -12em;
+
+                // transition:property duration
+                transition: bottom 4s;
+            }
+        }
+        .portfolio-item:hover{
+            .front-text{
+                transform: translateY(-200px);
+            }
+            .back-text{
+                bottom: 0;
+            }
+        }
+    }
+}
+
+// Media Queries
+@media screen and (min-width:576px){
+    #portfolio{
+        .portfolio-container{
+            // convert row into column
+            display: grid;
+            
+            grid-template-columns: repeat(2,1fr);
+            row-gap: 2rem;
+            column-gap: 1rem;
+        }
+    }
+}
+
+// Media Queries
+@media screen and (min-width:992px){
+    #portfolio{
+
+        .portfolio-container{
+            // convert row into column
+            display: grid;
+
+            grid-template-columns: repeat(2,1fr);
+            row-gap: 2rem;
+            column-gap: 1rem;
+
+            .portfolio-item:nth-of-type(1){
+                order: 1;
+            }
+
+            .portfolio-item:nth-of-type(2){
+                order: 2;
+            }
+
+            .portfolio-item:nth-of-type(3){
+                order: 4;
+            }
+
+            .portfolio-item:nth-of-type(4){
+                order: 3;
+            }
+
+            .portfolio-item:nth-of-type(5){
+                order: 5;
+            }
+
+            .portfolio-item:nth-of-type(6){
+                order:6;
+            }
+        } 
+    }
+}
